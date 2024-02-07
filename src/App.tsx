@@ -1,4 +1,5 @@
 import { AgregarEmpleado } from "./components/AgregarEmpleado";
+import { EditarEmpleado } from "./components/EditarEmpleado";
 import { ListaEmpleados } from "./components/ListaEmpleados";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
   return (
     <div>
       <ListaEmpleados/>
+      <EditarEmpleado/>
       <AgregarEmpleado/>
     </div>
   );
