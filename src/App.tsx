@@ -1,9 +1,13 @@
+import { AgregarEmpleado } from "./components/AgregarEmpleado";
 import { ListaEmpleados } from "./components/ListaEmpleados";
 
 function App() {
 
   return (
-    <ListaEmpleados/>
+    <div>
+      <ListaEmpleados/>
+      <AgregarEmpleado/>
+    </div>
   );
 }
 
