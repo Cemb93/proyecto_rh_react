@@ -1,5 +1,15 @@
+import { useEffect, useState } from "react";
+import { getEmpleados } from "../hooks/empleados";
+import { IEmpleados } from "../interface/IEmpleados";
 
 export const ListaEmpleados = () => {
+  const [empleados, setEmpleados] = useState<IEmpleados[]>([]);
+  // console.log("EMPLEADOS:", empleados)
+
+  useEffect(() => {
+    getEmpleados(setEmpleados);
+  }, []);
+
   return (
     <div className="contanier">
       <div className='container text-center' style={{ margin: "30px" }}>
@@ -15,18 +25,16 @@ export const ListaEmpleados = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
+          {empleados.map((el: IEmpleados, idx: number) => {
+            return (
+              <tr key={idx}>
+                <th scope="row">{el.idEmpleado}</th>
+                <td>{el.nombre}</td>
+                <td>{el.departamento}</td>
+                <td>{el.sueldo}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
